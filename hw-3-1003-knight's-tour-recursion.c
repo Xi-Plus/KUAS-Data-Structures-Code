@@ -1,9 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-typedef struct {
-	int x, y;
-}Node;
 int dx[] = {1, 2, 2, 1, -1, -2, -2, -1};
 int dy[] = {-2, -1, 1, 2, 2, 1, -1, -2};
 int r, c, sx, sy, t;
