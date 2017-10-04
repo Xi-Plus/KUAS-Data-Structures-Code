@@ -30,8 +30,7 @@ int dy[] = {0, 1, 1, 1, 0, -1, -1, -1};
 char ans[] = {'1', '0', '*'};
 int main() {
 	int r, c, sx, sy, ex, ey;
-	char t;
-	int nx, ny;
+	int t, nx, ny;
 	Node tn;
 	while(~scanf("%d %d %d %d %d %d", &r, &c, &sx, &sy, &ex, &ey)) {
 		Stack stack;
@@ -40,13 +39,11 @@ int main() {
 		int visit[r+1][c+1];
 		memset(map, 0, sizeof(map));
 		memset(visit, 0, sizeof(visit));
-		scanf("%c", &t);
 		for(int q=1; q<=r; q++){
 			for(int w=1; w<=c; w++){
-				scanf("%c", &t);
-				map[q][w] = (t=='0'); // in my map, road is 1, map is 0
+				scanf("%d", &t);
+				map[q][w] = 1-t; // in my map, road is 1, map is 0
 			}
-			scanf("%c", &t);
 		}
 		int nowx = sx, nowy = sy, nowdir = 0;
 		while(1) {
@@ -83,10 +80,10 @@ int main() {
 				pop(&stack);
 				map[tn.x][tn.y] = 2;
 			}
-			map[r][c] = 2;
+			map[ex][ey] = 2;
 			for(int q=1;q<=r;q++) {
 				for(int w=1; w<=c; w++) {
-					printf("%c", ans[map[q][w]]);
+					printf("%c ", ans[map[q][w]]);
 				}
 				printf("\n");
 			}
