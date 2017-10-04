@@ -36,7 +36,7 @@ int main() {
 		for(int q=1; q<=r; q++){
 			for(int w=1; w<=c; w++){
 				scanf("%d", &t);
-				map[q][w] = 1-t; // in my map, road is 1, map is 0
+				map[q][w] = 1-t; // in my map, road is 1, wall is 0
 			}
 		}
 		Node *answer = malloc(r * c * sizeof(Node));
