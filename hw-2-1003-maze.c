@@ -82,7 +82,7 @@ int main() {
 				map[tn.x][tn.y] = 2;
 			}
 			for(int q=1;q<=r;q++) {
-				printf("%c", ans[map[q][0]]);
+				printf("%c", ans[map[q][1]]);
 				for(int w=2; w<=c; w++) {
 					printf(" %c", ans[map[q][w]]);
 				}
