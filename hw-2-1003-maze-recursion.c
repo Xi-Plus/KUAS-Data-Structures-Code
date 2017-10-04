@@ -10,8 +10,8 @@ char ans[] = {'1', '0', '*'};
 int r, c, sx, sy, ex, ey, t;
 int dfs(int *map, int *visit, int nowx, int nowy, int depth, Node* answer) {
 	*(visit+(c+1)*nowx+nowy) = 1;
-	*(answer+depth) = (Node){nowx, nowy};
 	if(nowx == ex && nowy == ey) {
+		*(answer+depth) = (Node){nowx, nowy};
 		return depth;
 	}
 	for(int q=0; q<8; q++) {
@@ -19,7 +19,10 @@ int dfs(int *map, int *visit, int nowx, int nowy, int depth, Node* answer) {
 		int ny = nowy+dy[q];
 		if(*(map+((c+2)*nx)+ny) && !*(visit+(c+1)*nx+ny)) {
 			t = dfs(map, visit, nx, ny, depth+1, answer);
-			if (t) return t;
+			if (t) {
+				*(answer+depth) = (Node){nowx, nowy};
+				return t;
+			} 
 		}
 	}
 	return 0;
