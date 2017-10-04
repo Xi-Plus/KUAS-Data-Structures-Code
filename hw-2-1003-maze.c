@@ -49,6 +49,7 @@ int main() {
 		while(1) {
 			visit[nowx][nowy] = 1;
 			if(nowx == ex && nowy == ey){
+				push(&stack, (Node){nowx, nowy, -1});
 				break;
 			}
 			for(; nowdir<8; nowdir++) {
@@ -80,7 +81,6 @@ int main() {
 				pop(&stack);
 				map[tn.x][tn.y] = 2;
 			}
-			map[ex][ey] = 2;
 			for(int q=1;q<=r;q++) {
 				for(int w=1; w<=c; w++) {
 					printf("%c ", ans[map[q][w]]);
