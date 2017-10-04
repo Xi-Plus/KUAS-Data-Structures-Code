@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
+#define MAX_R 20
+#define MAX_C 20 
 using namespace std;
 int RAND(int a, int b) {
 	return rand()%(b-a+1)+a;
@@ -8,8 +10,8 @@ int RAND(int a, int b) {
 int main(int argc, char* argv[]) {
 	srand(time(NULL));
 	int r, c, sx, sy, ex, ey;
-	r = RAND(2, 10);
-	c = RAND(2, 10);
+	r = RAND(2, MAX_R);
+	c = RAND(2, MAX_C);
 	sx = RAND(1, r);
 	sy = RAND(1, c);
 	ex = RAND(1, r);
