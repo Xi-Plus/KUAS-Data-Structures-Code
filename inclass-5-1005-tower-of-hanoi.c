@@ -1,11 +1,11 @@
 #include <stdio.h>
-void f(int n, char a, char b, char c) {
+void f(int n, char from, char buffer, char to) {
 	if (n == 1) {
-		printf("%c -> %c\n", a, c);
+		printf("%c -> %c\n", from, to);
 	} else {
-		f(n-1, a, c, b);
-		printf("%c -> %c\n", a, c);
-		f(n-1, b, a, c);
+		f(n-1, from, to, buffer);
+		printf("%c -> %c\n", from, to);
+		f(n-1, buffer, from, to);
 	}
 }
 int main() {
