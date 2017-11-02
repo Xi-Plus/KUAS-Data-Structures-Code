@@ -11,13 +11,24 @@ void add(Node **q, int n) {
 	(*q)->v = n;
 	(*q)->next = t;
 }
-int del(Node *q) {
-	if(q->next == q->next->next) {
+int del(Node **q) {
+	if((*q)->next == (*q)->next->next) {
 		printf("empty\n");
 		return -1;
 	}
-	int r = q->next->next->v;
-	q->next = q->next->next;
+	int r;
+	Node *tmp;
+	if((*q)->next == (*q)->next->next->next) { // remain 1
+		r = (*q)->v;
+		tmp = (*q);
+		(*q) = (*q)->next; // let rear is dummy
+		(*q)->next = (*q)->next->next;
+	} else {
+		r = (*q)->next->next->v;
+		tmp = (*q)->next->next;
+		(*q)->next->next = (*q)->next->next->next;
+	}
+	free(tmp);
 	return r;
 }
 int main(){
@@ -30,7 +41,7 @@ int main(){
 			scanf(" %d", &n);
 			add(&q, n);
 		} else if (strcmp(cmd, "del") == 0) {
-			printf("return %d\n", del(q));
+			printf("return %d\n", del(&q));
 		} else {
 			printf("no command\n");
 		}
