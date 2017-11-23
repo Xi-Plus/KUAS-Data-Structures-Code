@@ -44,10 +44,6 @@ void pop(Heap *h) {
 			} else {
 				break;
 			}
-			for (int q=1; q <= h->size; q++) {
-				printf("%d\t", h->heap[q]);
-			}
-			printf("\n");
 		}
 	} else {
 		printf("nothing to pop\n");
