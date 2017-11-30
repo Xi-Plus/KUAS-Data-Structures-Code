@@ -85,11 +85,11 @@ int main() {
 	printf("original edge\n");
 	for(int q=0; q<MAX_E; q++) {
 		a = b = 0;
-		while(a == b || G[a][b] == 1) {
+		while(a == b || G[a][b] != 0) {
 			a = rand()%MAX_V;
 			b = rand()%MAX_V;
 		}
-		c = rand()%20;
+		c = rand()%20+1;
 		G[a][b] = c;
 		G[b][a] = c;
 		Edge temp = {a, b, c};
